@@ -1,1 +1,272 @@
 site lip
+export default function MadeiraPicWebsite() {
+  const featuredProducts = [
+    {
+      title: 'Palitos de Picolé Natural',
+      price: 'R$ 4,90',
+      image: '🪵'
+    },
+    {
+      title: 'Palitos Premium',
+      price: 'R$ 29,90',
+      image: '📦'
+    },
+    {
+      title: 'Rack MDF Branco',
+      price: 'R$ 499,90',
+      image: '🪑'
+    },
+    {
+      title: 'Mesa Madeira Maciça',
+      price: 'R$ 1.499,90',
+      image: '🌳'
+    }
+  ];
+
+  return (
+    <div className="bg-[#f5f5f3] min-h-screen font-sans text-zinc-800">
+      {/* Topbar */}
+      <div className="bg-green-900 text-white text-sm py-2 px-8 flex justify-between items-center">
+        <div className="flex gap-8">
+          <span>📞 Atendimento: (11) 99999-9999</span>
+          <span>✉ contato@madeirapic.com.br</span>
+        </div>
+
+        <span>🚚 Entrega para todo o Brasil</span>
+      </div>
+
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-zinc-200 px-8 py-5 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+          <div>
+            <h1 className="text-4xl font-black text-green-900">
+              Madeira<span className="text-amber-700">Pic</span>
+            </h1>
+            <p className="text-sm text-zinc-500">
+              Qualidade que transforma
+            </p>
+          </div>
+
+          <div className="flex-1 max-w-2xl relative">
+            <input
+              className="w-full rounded-full border border-zinc-300 py-4 px-6 outline-none focus:border-green-700"
+              placeholder="O que você procura?"
+            />
+
+            <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-green-900 text-white rounded-full w-12 h-12">
+              🔍
+            </button>
+          </div>
+
+          <div className="flex gap-6 items-center text-sm font-medium">
+            <button>👤 Minha conta</button>
+            <button className="bg-zinc-100 px-5 py-3 rounded-full">
+              🛒 Carrinho
+            </button>
+          </div>
+        </div>
+
+        {/* Nav */}
+        <nav className="max-w-7xl mx-auto mt-6 flex gap-10 font-semibold text-zinc-700">
+          <a className="text-green-800 border-b-2 border-green-800 pb-2">
+            Início
+          </a>
+
+          <a>Palitos de Picolé</a>
+          <a>Móveis de MDF</a>
+          <a>Madeira Maciça</a>
+          <a>Sobre Nós</a>
+          <a>Contato</a>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section className="max-w-7xl mx-auto px-6 py-10">
+        <div className="bg-gradient-to-r from-[#f6efe5] to-[#f1e4d2] rounded-[40px] overflow-hidden shadow-lg grid lg:grid-cols-2 gap-10 items-center p-10">
+          <div>
+            <h2 className="text-6xl font-black leading-tight mb-6">
+              Qualidade,
+              <br />
+              Resistência
+              <br />
+              <span className="text-green-700">e Sustentabilidade</span>
+            </h2>
+
+            <p className="text-xl text-zinc-700 mb-8 leading-relaxed">
+              Palitos de picolé, móveis de MDF e móveis de madeira maciça com os melhores preços do Brasil.
+            </p>
+
+            <div className="flex gap-4 flex-wrap mb-10">
+              <button className="bg-green-800 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-bold transition">
+                Comprar agora
+              </button>
+
+              <button className="border-2 border-green-800 text-green-800 px-8 py-4 rounded-2xl font-bold hover:bg-green-800 hover:text-white transition">
+                Ver categorias
+              </button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4 text-sm">
+              <div className="bg-white rounded-2xl p-4 shadow">
+                🚚 Entrega rápida
+              </div>
+
+              <div className="bg-white rounded-2xl p-4 shadow">
+                🛡 Alta qualidade
+              </div>
+
+              <div className="bg-white rounded-2xl p-4 shadow">
+                🌱 Sustentável
+              </div>
+            </div>
+          </div>
+
+          <div className="relative h-full min-h-[500px] rounded-3xl bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+            <div className="text-[220px]">🪑</div>
+
+            <div className="absolute bottom-6 left-6 bg-white rounded-3xl shadow-2xl px-8 py-5 text-7xl rotate-[-10deg]">
+              🪵
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6 pb-14">
+        <CategoryCard
+          emoji="🪵"
+          title="Palitos de Picolé"
+          description="Ideais para artesanato e projetos escolares."
+        />
+
+        <CategoryCard
+          emoji="🪑"
+          title="Móveis de MDF"
+          description="Design moderno e excelente acabamento."
+        />
+
+        <CategoryCard
+          emoji="🌳"
+          title="Madeira Maciça"
+          description="Elegância, durabilidade e sofisticação."
+        />
+      </section>
+
+      {/* Products */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="flex items-center justify-between mb-8">
+          <h3 className="text-4xl font-black">
+            Produtos em destaque
+          </h3>
+
+          <button className="text-green-700 font-bold hover:underline">
+            Ver todos
+          </button>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {featuredProducts.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl overflow-hidden shadow hover:-translate-y-2 hover:shadow-2xl transition"
+            >
+              <div className="h-60 bg-gradient-to-br from-zinc-100 to-zinc-200 flex items-center justify-center text-8xl">
+                {product.image}
+              </div>
+
+              <div className="p-6">
+                <h4 className="font-bold text-xl mb-3">
+                  {product.title}
+                </h4>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-black text-green-700">
+                    {product.price}
+                  </span>
+
+                  <button className="bg-green-800 hover:bg-green-700 text-white px-5 py-3 rounded-xl transition">
+                    Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-green-950 to-green-800 text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+          <div>
+            <h3 className="text-3xl font-black mb-4">
+              MadeiraPic
+            </h3>
+
+            <p className="text-green-100 leading-relaxed">
+              Trabalhamos com móveis de MDF, madeira maciça e produtos sustentáveis.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-xl mb-4">Categorias</h4>
+
+            <ul className="space-y-3 text-green-100">
+              <li>Palitos de Picolé</li>
+              <li>Móveis MDF</li>
+              <li>Madeira Maciça</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-xl mb-4">Ajuda</h4>
+
+            <ul className="space-y-3 text-green-100">
+              <li>Como comprar</li>
+              <li>Trocas e devoluções</li>
+              <li>Política de privacidade</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-xl mb-4">
+              Newsletter
+            </h4>
+
+            <input
+              className="w-full rounded-xl px-4 py-3 text-zinc-800 mb-4"
+              placeholder="Seu melhor e-mail"
+            />
+
+            <button className="w-full bg-amber-500 hover:bg-amber-400 text-zinc-900 py-3 rounded-xl font-bold transition">
+              Inscrever-se
+            </button>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto border-t border-green-700 mt-12 pt-8 text-center text-green-100">
+          © 2026 MadeiraPic — Todos os direitos reservados.
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function CategoryCard({ emoji, title, description }) {
+  return (
+    <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition">
+      <div className="text-7xl mb-6">{emoji}</div>
+
+      <h3 className="text-3xl font-black mb-4 text-green-900">
+        {title}
+      </h3>
+
+      <p className="text-zinc-600 mb-6 leading-relaxed">
+        {description}
+      </p>
+
+      <button className="bg-green-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition">
+        Ver produtos
+      </button>
+    </div>
+  );
+}
